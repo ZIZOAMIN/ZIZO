@@ -70,11 +70,45 @@
 
 مع أطيب التحيات,
 عبدالعزيز 🌟
-   <h2>سجل معنا</h2>
-            <form>
-        <label for="name">الاسم:</label>
-        <input type="text" id="name">
-    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>💬 صندوق الإرسال</h2>
+        <div class="send-box">
+            <input type="text" id="name" placeholder="📝 اكتب اسمك">
+            <textarea id="message" rows="4" placeholder="💬 اكتب رسالتك"></textarea>
+            <button onclick="sendData()">📩 إرسال</button>
+            <p id="response"></p>
+        </div>
+    </div>
+
+    <div class="footer">جميع الحقوق محفوظة © 2025</div>
+
+    <script>
+        function sendData() {
+            let name = document.getElementById("name").value.trim();
+            let message = document.getElementById("message").value.trim();
+            let response = document.getElementById("response");
+
+            if (name === "" || message === "") {
+                response.style.color = "red";
+                response.innerHTML = "⚠️ يرجى ملء جميع الحقول!";
+                return;
+            }
+
+            response.style.color = "green";
+            response.innerHTML = `✅ تم إرسال الرسالة بنجاح! <br> 📌 الاسم: ${name} <br> 💬 الرسالة: ${message}`;
+
+            // مسح الحقول بعد الإرسال
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+        }
+    </script>
+
+</body>
+</html> 
         <p>الجنس:</p>
         <input type="radio" id="male" name="gender">
         <label for="male">ذكر</label>
